@@ -26,7 +26,13 @@ ZBaseMainWindow::ZBaseMainWindow(QWidget* parent) : QMainWindow(parent)
     // Menus
     zv_languageMenu = new QMenu;
     zv_languageMenu->setIcon(QIcon(":/images/ZImages/earthGlobe-16.png"));
+<<<<<<< HEAD
     zv_dockWidgetMenu = nullptr;
+=======
+    zv_dockWidgetMenu = new QMenu;
+    zv_dockWidgetMenu->setTitle(tr("Dockwidgets"));
+    zv_dockWidgetMenu->installEventFilter(this);
+>>>>>>> a922cedbf11cf6991b728632358eaad915a99615
 
     zh_createBaseActions();
     zh_createBaseConnections();
@@ -207,10 +213,15 @@ void ZBaseMainWindow::zh_appendActionsToMenu(QMenu* menu, int menuIdentifier)
         }
 
         QObjectList childList = this->children();
+<<<<<<< HEAD
+=======
+        menu->addMenu(zv_dockWidgetMenu);
+>>>>>>> a922cedbf11cf6991b728632358eaad915a99615
         foreach (QObject* object, childList)
         {
             if (object->metaObject()->className() == QString("QDockWidget"))
             {
+<<<<<<< HEAD
                 if (!zv_dockWidgetMenu)
                 {
                     zv_dockWidgetMenu = new QMenu;
@@ -219,6 +230,8 @@ void ZBaseMainWindow::zh_appendActionsToMenu(QMenu* menu, int menuIdentifier)
                     menu->addMenu(zv_dockWidgetMenu);
                 }
 
+=======
+>>>>>>> a922cedbf11cf6991b728632358eaad915a99615
                 QDockWidget* dock = dynamic_cast<QDockWidget*>(object);
                 QAction* viewAction = new QAction(zv_dockWidgetMenu);
                 viewAction->setCheckable(true);
