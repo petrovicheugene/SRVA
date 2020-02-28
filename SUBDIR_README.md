@@ -1,19 +1,112 @@
-//======================================================
-#include "MainWindow.h"
-// #include "ZTranslatorManager.h"
+# README #
 
-#include <iostream>
+### How to create subdir project ###
+1. Create a project from the Qt subdir template
+2. Define project default path in Build&Run:
+
+../%{JS: Util.asciify("build/%{CurrentKit:FileSystemName}-%{CurrentBuild:Name}/%{CurrentProject:Name}")}
+
+and Projects Directory : Current directory 
+
+3. Run subDirInit.bat script. It creates all extra subfolders according to the subdir project schema 
+
+.
+├── bin
+│   ├── debug
+│   └── release
+├── build
+│   ├── debug
+│   └── release
+├── import
+├── include
+├── lib.linux
+├── lib.win32
+├── src
+│   ├── include
+│   ├── MyApp
+│   └── MyLib
+└── tests
+    └── MyLibTest
+
+4. Add a subproject in the src directory
+5. Modify default .pro file for application by inserting the following after 
+"greaterThan(QT_MAJOR_VERSION, 4): QT += widgets"
+
+
+#PRO VARS
+TARGET = <SubAppName>
+#Application version
+#RC_ICONS = "ZImages/SRVLab-8.ico"
+
+VER_MAJ=0
+VER_MIN=0
+VER_PAT=0
+VER_BUILD=b
+
+QMAKE_TARGET_PRODUCT="Sub App 1"
+QMAKE_TARGET_DESCRIPTION="Sub App 1 app"
+QMAKE_TARGET_COMPANY="TechnoAnalyt"
+QMAKE_TARGET_COPYRIGHT="Copyright © $${QMAKE_TARGET_COMPANY} Ltd. 2017, 2018.  All rights reserved."
+COMPANY_URL=tehnoanalit.com
+
+#-------------------------------------------------
+# in common.pri will be defined VERSION, TARGET, DEBUG SETTINGS
+#  global APP DEFINES
+#-------------------------------------------------
+include( ../../common.pri )
+include( ../../app.pri )
+
+#END
+
+
+
+
+6. Modify default .pro file by inserting the following after 
+"TARGET = <SubLibName>"
+
+#PRO VARS
+#Application version
+#RC_ICONS = "ZImages/SRVLab-8.ico"
+
+VER_MAJ=1
+VER_MIN=2
+VER_PAT=3
+VER_BUILD=b
+
+
+QMAKE_TARGET_PRODUCT="SRV Lab"
+QMAKE_TARGET_DESCRIPTION="Chemical analysis of X-ray spectra"
+QMAKE_TARGET_COMPANY="TechnoAnalyt"
+QMAKE_TARGET_COPYRIGHT="Copyright © $${QMAKE_TARGET_COMPANY} Ltd. 2017, 2018.  All rights reserved."
+COMPANY_URL=tehnoanalit.com
+LANGUAGES += en \
+    ru \
+    kk
+#-------------------------------------------------
+# in common.pri will be defined VERSION, TARGET, DEBUG SETTINGS
+#  global APP DEFINES
+#-------------------------------------------------
+include( ../../common.pri )
+include( ../../lib.pri )
+
+#END
+
+7. Modify main.cpp :
+
+//===============================================
+#include "mainwindow.h"
+#include "ZTranslatorManager.h"
+
 #include <windows.h>
-
 #include <QApplication>
-#include <QDir>
-#include <QOperatingSystemVersion>
-#include <QPixmap>
-#include <QSet>
-#include <QSplashScreen>
-#include <QTextCodec>
 #include <QTranslator>
-
+#include <QTextCodec>
+#include <QDir>
+#include <QSplashScreen>
+#include <QPixmap>
+#include <iostream>
+#include <QSet>
+//===============================================
 //======================================================
 /*!
 \brief  This module contains a function "messageHandler" for receiving standard
@@ -37,28 +130,29 @@
 namespace
 {
 // main window pointer
-static MainWindow *pMainWindow = nullptr;
+static MainWindow* pMainWindow = nullptr;
 static QSet<QtMsgType> msgTypesToHandleInMainWindowSet;
 
 // settings of format of debug output mssages to stderr
-enum DebugOutputOption
-{
+enum DebugOutputOption {
     DO_MsgOnly = 0x0,
     DO_ShowFile = 0x1,
     DO_ShowFunction = 0x2,
     DO_ShowLine = 0x4,
-    DO_ShowVersion = 0x8
-};
+    DO_ShowVersion = 0x8};
 
 Q_DECLARE_FLAGS(DebugOutputOptions, DebugOutputOption)
 Q_DECLARE_OPERATORS_FOR_FLAGS(DebugOutputOptions)
 
-static DebugOutputOptions debugOutputOption = DO_MsgOnly | DO_ShowFile | DO_ShowFunction
-                                              | DO_ShowLine
-    // | DO_ShowVersion
-    ;
+static DebugOutputOptions debugOutputOption =
+        DO_MsgOnly
+        | DO_ShowFile
+        | DO_ShowFunction
+        | DO_ShowLine
+        // | DO_ShowVersion
+        ;
 
-} // namespace
+}
 //======================================================
 void initMsgTypesToHandleInMainWindow()
 {
@@ -73,7 +167,7 @@ void initMsgTypesToHandleInMainWindow()
 //======================================================
 void messageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg)
 {
-    if (pMainWindow != nullptr && (msgTypesToHandleInMainWindowSet.contains(type)))
+    if(pMainWindow != nullptr && (msgTypesToHandleInMainWindowSet.contains(type)))
     {
         // let the application handles message (for example for saving in log)
         pMainWindow->zp_handleStandardLogMessage(type, context, msg);
@@ -82,47 +176,47 @@ void messageHandler(QtMsgType type, const QMessageLogContext &context, const QSt
     // Standard output
     QString outputMsg = msg;
     // it msg type is debug add context to message
-    if (type == QtDebugMsg)
+    if(type == QtDebugMsg)
     {
         QString contextString;
-        if (debugOutputOption & DO_ShowFile)
+        if(debugOutputOption & DO_ShowFile)
         {
             contextString += QString(context.file);
         }
-        if (debugOutputOption & DO_ShowFunction)
+        if(debugOutputOption & DO_ShowFunction)
         {
-            if (!contextString.isEmpty())
+            if(!contextString.isEmpty())
             {
                 contextString += "; ";
             }
             contextString += QString(context.function);
         }
-        if (debugOutputOption & DO_ShowLine)
+        if(debugOutputOption & DO_ShowLine)
         {
-            if (!contextString.isEmpty())
+            if(!contextString.isEmpty())
             {
                 contextString += "; ";
             }
             contextString += "line:" + QString::number(context.line);
         }
-        if (debugOutputOption & DO_ShowVersion)
+        if(debugOutputOption & DO_ShowVersion)
         {
-            if (!contextString.isEmpty())
+            if(!contextString.isEmpty())
             {
                 contextString += "; ";
             }
-            contextString += "ver:" + QString::number(context.version);
+            contextString +=  "ver:" + QString::number(context.version);
         }
 
-        if (!contextString.isEmpty())
+        if(!contextString.isEmpty())
         {
             outputMsg += " | " + contextString;
         }
     }
 
-    std::cerr << outputMsg.toStdString() << std::endl;
+    std::cerr <<  outputMsg.toStdString() <<  std::endl;
 
-    if (type == QtFatalMsg)
+    if(type == QtFatalMsg)
     {
         abort();
     }
@@ -130,7 +224,7 @@ void messageHandler(QtMsgType type, const QMessageLogContext &context, const QSt
 //======================================================
 int main(int argc, char *argv[])
 {
-    QTextCodec *codec = QTextCodec::codecForName("windows-1251");
+    QTextCodec* codec = QTextCodec::codecForName("windows-1251");
     QTextCodec::setCodecForLocale(codec);
 
     QApplication a(argc, argv);
@@ -138,6 +232,7 @@ int main(int argc, char *argv[])
     initMsgTypesToHandleInMainWindow();
     // custom message handler for logging via qInfo qWarning qCritical
     qInstallMessageHandler(messageHandler);
+
 
     // create qApp properties and set .pro defines into them
 #ifdef APP_DISPLAY_NAME
@@ -168,17 +263,15 @@ int main(int argc, char *argv[])
     qApp->setProperty("appIcon", QString(APP_ICON));
 #endif
 
-#ifdef APP_DESCRIPTION
-    qApp->setProperty("appDescription", QString(APP_DESCRIPTION));
-#endif
-    //    ZTranslatorManager languageManager;
-    //    languageManager.zp_installTranslatorsToApplication();
+    ZTranslatorManager languageManager;
+    languageManager.zp_installTranslatorsToApplication();
+
 
     // set dots on the splitter handle
-    qApp->setStyleSheet("QSplitter::handle:vertical {height: 4px; image: "
-                        "url(:/images/ZImages/vSplitterHandler.png);}"
-                        "QSplitter::handle:horizontal {width: 4px; image: "
-                        "url(:/images/ZImages/hSplitterHandler.png);}");
+    qApp->setStyleSheet(
+                "QSplitter::handle:vertical {height: 4px; image: url(:/images/ZImages/vSplitterHandler.png);}"
+                "QSplitter::handle:horizontal {width: 4px; image: url(:/images/ZImages/hSplitterHandler.png);}"
+                );
 
     // horizontal lines on table header views on win10
     QOperatingSystemVersion currentOS = QOperatingSystemVersion::current();
@@ -212,3 +305,9 @@ int main(int argc, char *argv[])
     return a.exec();
 }
 //===============================================
+
+
+8. Add a new subproject for Qt Installer
+
+
+
