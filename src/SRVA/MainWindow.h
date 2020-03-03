@@ -5,9 +5,9 @@
 #include "ZBaseMainWindow/ZBaseMainWindow.h"
 //==============================================
 class ZMeasurementDataWidget;
-class
-    //==============================================
-    class MainWindow : public ZBaseMainWindow
+class ZCommonAnalyticalSettingsWidget;
+//==============================================
+class MainWindow : public ZBaseMainWindow
 {
     Q_OBJECT
 
@@ -18,8 +18,9 @@ public:
 private:
     // VARS
     ZMeasurementDataWidget* zv_measurementDataWidget;
-
+    ZCommonAnalyticalSettingsWidget* zv_commonAnalyticalSettingsWidget;
     // FUNCS
+    void closeEvent(QCloseEvent* e) override;
 
     void zh_createMenu();
     void zh_createComponents();

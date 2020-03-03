@@ -1,14 +1,17 @@
 //==============================================
 #include "MainWindow.h"
+#include "ZCommonAnalyticalSettingsWidget.h"
 #include "ZMeasurementDataWidget.h"
-#include "ZSpectrumWindowWidget.h"
 
+#include <QApplication>
+#include <QDebug>
 #include <QDockWidget>
 #include <QMenu>
 #include <QMenuBar>
+#include <QMetaObject>
 #include <QSettings>
 //==============================================
-MainWindow::MainWindow(QWidget *parent) : ZBaseMainWindow(parent)
+MainWindow::MainWindow(QWidget* parent) : ZBaseMainWindow(parent)
 {
     zh_createComponents();
     zh_createConnections();
@@ -16,24 +19,12 @@ MainWindow::MainWindow(QWidget *parent) : ZBaseMainWindow(parent)
     zh_restoreSettings();
 }
 //==============================================
-MainWindow::~MainWindow()
+MainWindow::~MainWindow() {}
+//==============================================
+void MainWindow::closeEvent(QCloseEvent* e)
 {
     zh_saveSettings();
 }
-//==============================================
-//void MainWindow::zh_saveSettings() const
-//{
-//    QSettings settings;
-//    settings.setValue(zv_appGeometryString, saveGeometry());
-//    settings.setValue(zv_appStateString, saveState());
-//}
-////==============================================
-//void MainWindow::zh_restoreSettings()
-//{
-//    QSettings settings;
-//    restoreGeometry(settings.value(zv_appGeometryString).toByteArray());
-//    restoreState(settings.value(zv_appStateString).toByteArray());
-//}
 //==============================================
 void MainWindow::zh_createMenu()
 {
@@ -72,9 +63,15 @@ void MainWindow::zh_createComponents()
     zv_measurementDataWidget = new ZMeasurementDataWidget;
     QDockWidget* dock = new QDockWidget;
     dock->setWidget(zv_measurementDataWidget);
+    dock->setObjectName("MeasurementDataWidget");
     addDockWidget(Qt::TopDockWidgetArea, dock);
 
     // Spectrum window and parameter widgets
+    zv_commonAnalyticalSettingsWidget = new ZCommonAnalyticalSettingsWidget;
+    dock = new QDockWidget;
+    dock->setWidget(zv_commonAnalyticalSettingsWidget);
+    dock->setObjectName("CommonAnalyticalSettingsWidget");
+    addDockWidget(Qt::TopDockWidgetArea, dock);
 }
 //==============================================
 void MainWindow::zh_createConnections() {}

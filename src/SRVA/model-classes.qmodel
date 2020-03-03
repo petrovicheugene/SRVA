@@ -109,8 +109,8 @@
                          </base-DElement>
                          <object>{8c42113e-c35a-487f-974d-ada75c0b1bd9}</object>
                          <name>ZSpectrumWindowWidget</name>
-                         <pos>x:375;y:615</pos>
-                         <rect>x:-70;y:-55;w:140;h:110</rect>
+                         <pos>x:375;y:595</pos>
+                         <rect>x:-70;y:-35;w:140;h:70</rect>
                          <auto-sized>false</auto-sized>
                          <visual-role>0</visual-role>
                         </DObject>
@@ -192,7 +192,7 @@ and ZAnalyticalParameterWidget</text>
                          <uid>{09ce0a1c-82d1-4f5e-aede-1715e45a4820}</uid>
                         </DElement>
                        </base-DElement>
-                       <text>The c lass represents the spectrum windows and the controls for adding, deleting, and editing them</text>
+                       <text>The class represents the spectrum windows and the controls for adding, deleting, and editing them</text>
                        <pos>x:455;y:560</pos>
                        <rect>x:0;y:0;w:160;h:68</rect>
                        <auto-sized>false</auto-sized>
@@ -397,7 +397,7 @@ and ZAnalyticalParameterWidget</text>
                          </base-DElement>
                          <object>{79661f2a-d8c9-48b4-bc32-e0547e374925}</object>
                          <name>ZPlotter</name>
-                         <pos>x:100;y:805</pos>
+                         <pos>x:105;y:750</pos>
                          <rect>x:-40;y:-30;w:80;h:60</rect>
                          <visual-role>0</visual-role>
                         </DObject>
@@ -442,7 +442,7 @@ and ZAnalyticalParameterWidget</text>
                          </base-DElement>
                          <object>{757bfb27-13f2-4aa3-8f5a-8d75c17f9295}</object>
                          <name>ZPlotterDataManager</name>
-                         <pos>x:315;y:805</pos>
+                         <pos>x:320;y:750</pos>
                          <rect>x:-60;y:-30;w:120;h:60</rect>
                          <visual-role>0</visual-role>
                         </DObject>
@@ -475,7 +475,7 @@ and ZAnalyticalParameterWidget</text>
                     </item>
                    </qlist>
                   </elements>
-                  <last-modified>1583232887372</last-modified>
+                  <last-modified>1583244009795</last-modified>
                   <toolbarid>Classes</toolbarid>
                  </MDiagram>
                 </base-MDiagram>
@@ -815,7 +815,7 @@ and ZAnalyticalParameterWidget</text>
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{06cc08bf-1fdb-446d-bc69-6d2a0d4d3ca4}</uid>
+                    <uid>{66605412-d7d3-4c53-b4f3-9b20d00386f2}</uid>
                     <type>1</type>
                     <declaration>QTableView zv_table</declaration>
                    </MClassMember>

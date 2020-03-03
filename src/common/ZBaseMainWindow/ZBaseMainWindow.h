@@ -42,6 +42,8 @@ public:
         MI_HELP = 4
     };
 
+public slots:
+
 signals:
 
     void zg_standardLogMessage(QtMsgType type, const QString& msg) const;
@@ -70,7 +72,6 @@ protected:
     bool eventFilter(QObject* obj, QEvent* event) override;
     void zh_createBaseActions();
     void zh_createBaseConnections();
-
     virtual void zh_saveSettings() const;
     virtual void zh_restoreSettings();
     void zh_appendActionsToMenu(QMenu* menu, int menuIdentifier);

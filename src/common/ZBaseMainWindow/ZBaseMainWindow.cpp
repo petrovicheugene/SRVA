@@ -32,9 +32,8 @@ ZBaseMainWindow::ZBaseMainWindow(QWidget* parent) : QMainWindow(parent)
     zh_createBaseConnections();
 }
 //======================================================
-void ZBaseMainWindow::zp_handleStandardLogMessage(QtMsgType type,
-                                                  const QMessageLogContext& context,
-                                                  const QString& msg) const
+void ZBaseMainWindow::zp_handleStandardLogMessage(
+    QtMsgType type, const QMessageLogContext& context, const QString& msg) const
 {
     // send message to ApplicationLogger
     emit zg_standardLogMessage(type, msg);
@@ -51,10 +50,16 @@ void ZBaseMainWindow::zh_createBaseActions()
 void ZBaseMainWindow::zh_createBaseConnections()
 {
     connect(zv_helpAction, &QAction::triggered, this, &ZBaseMainWindow::zh_help);
-    connect(zv_aboutAction, &QAction::triggered, this, &ZBaseMainWindow::zh_about);
+    connect(zv_aboutAction,
+            &QAction::triggered,
+            this,
+            &ZBaseMainWindow::zh_about);
     connect(zv_aboutQtAction, &QAction::triggered, qApp, &QApplication::aboutQt);
     connect(zv_exitAction, &QAction::triggered, this, &ZBaseMainWindow::zh_exit);
-    connect(zv_languageMenu, &QMenu::aboutToShow, this, &ZBaseMainWindow::zh_fillLanguageMenu);
+    connect(zv_languageMenu,
+            &QMenu::aboutToShow,
+            this,
+            &ZBaseMainWindow::zh_fillLanguageMenu);
 }
 //==============================================
 void ZBaseMainWindow::zh_saveSettings() const
@@ -81,13 +86,17 @@ void ZBaseMainWindow::zh_help()
         QDir dir = QApplication::applicationDirPath();
         dir.cd("Doc");
         searchList << dir.absolutePath(); // << ":/docs"; Streams.files
-        dir.cd(QString("%1.files").arg(qApp->property("glAppExeBaseName").toString()));
+        dir.cd(QString("%1.files")
+                   .arg(qApp->property("glAppExeBaseName").toString()));
         searchList << dir.absolutePath() << ":/docs";
 
-        zv_helpBrowser = ZHelpBrowser::zp_instance(searchList, source, centralWidget());
+        zv_helpBrowser = ZHelpBrowser::zp_instance(searchList,
+                                                   source,
+                                                   centralWidget());
         zv_helpBrowser->setAttribute(Qt::WA_GroupLeader);
         zv_helpBrowser->show();
-    } else if (!zv_helpBrowser->isVisible())
+    }
+    else if (!zv_helpBrowser->isVisible())
     {
         zv_helpBrowser->setVisible(true);
     }
@@ -97,30 +106,31 @@ void ZBaseMainWindow::zh_about()
 {
     QString title = tr("About %1").arg(qApp->applicationDisplayName());
     QString description = qApp->property("appDescription").toString();
-    QString htmlText = QString("<table border=0 cellspacing = 15>"
-                               "<tr>"
-                               "<td align = left><img src=:/images/appIcon.png></td>"
-                               "<td align = left><h1 align = center>%1</h1>"
-                               "</td>"
-                               "</tr>"
-                               "</table>"
-                               "<p>%6 - %2</p>"
-                               "<p>%3</p>"
-                               "<p>%7<br> "
-                               "Company website: <a href=\"http://%8/\">%8</a><br>"
-                               "%5: %4<br>"
-                               "Author's email: <a "
-                               "href=mailto:petrovich.eugene@gmail.com?Subject=My%20Subject>"
-                               "petrovich.eugene@gmail.com</a></p>")
-                           .arg(qApp->applicationDisplayName(),
-                                qApp->applicationVersion(),
-                                description,
-                                tr("Eugene Petrovich"),
-                                tr("Author"),
-                                tr("Version"),
-                                qApp->property("appCopyright").toString(),
-                                qApp->organizationDomain(),
-                                qApp->property("appCopyright").toString());
+    QString htmlText
+        = QString("<table border=0 cellspacing = 15>"
+                  "<tr>"
+                  "<td align = left><img src=:/images/appIcon.png></td>"
+                  "<td align = left><h1 align = center>%1</h1>"
+                  "</td>"
+                  "</tr>"
+                  "</table>"
+                  "<p>%6 - %2</p>"
+                  "<p>%3</p>"
+                  "<p>%7<br> "
+                  "Company website: <a href=\"http://%8/\">%8</a><br>"
+                  "%5: %4<br>"
+                  "Author's email: <a "
+                  "href=mailto:petrovich.eugene@gmail.com?Subject=My%20Subject>"
+                  "petrovich.eugene@gmail.com</a></p>")
+              .arg(qApp->applicationDisplayName(),
+                   qApp->applicationVersion(),
+                   description,
+                   tr("Eugene Petrovich"),
+                   tr("Author"),
+                   tr("Version"),
+                   qApp->property("appCopyright").toString(),
+                   qApp->organizationDomain(),
+                   qApp->property("appCopyright").toString());
 
     QMessageBox::about(centralWidget(), title, htmlText);
 }
@@ -206,28 +216,29 @@ void ZBaseMainWindow::zh_appendActionsToMenu(QMenu* menu, int menuIdentifier)
             menu->addSeparator();
         }
 
-        QObjectList childList = this->children();
-        foreach (QObject* object, childList)
+        QList<QDockWidget*> dockList = this->findChildren<QDockWidget*>();
+        foreach (QDockWidget* dock, dockList)
         {
-            if (object->metaObject()->className() == QString("QDockWidget"))
+            if (!zv_dockWidgetMenu)
             {
-                if (!zv_dockWidgetMenu)
-                {
-                    zv_dockWidgetMenu = new QMenu;
-                    zv_dockWidgetMenu->setTitle(tr("Dockwidgets"));
-                    zv_dockWidgetMenu->installEventFilter(this);
-                    menu->addMenu(zv_dockWidgetMenu);
-                }
-
-                QDockWidget* dock = dynamic_cast<QDockWidget*>(object);
-                QAction* viewAction = new QAction(zv_dockWidgetMenu);
-                viewAction->setCheckable(true);
-                viewAction->setChecked(dock->isVisible());
-                viewAction->setText(dock->windowTitle());
-                connect(dock, &QDockWidget::visibilityChanged, viewAction, &QAction::setChecked);
-                connect(viewAction, &QAction::toggled, dock, &QDockWidget::setVisible);
-                zv_dockWidgetMenu->addAction(viewAction);
+                zv_dockWidgetMenu = new QMenu;
+                zv_dockWidgetMenu->setTitle(tr("Dockwidgets"));
+                zv_dockWidgetMenu->installEventFilter(this);
+                menu->addMenu(zv_dockWidgetMenu);
             }
+
+            QAction* viewAction = new QAction(zv_dockWidgetMenu);
+            viewAction->setCheckable(true);
+            viewAction->setText(dock->windowTitle());
+            connect(dock,
+                    &QDockWidget::visibilityChanged,
+                    viewAction,
+                    &QAction::setChecked);
+            connect(viewAction,
+                    &QAction::toggled,
+                    dock,
+                    &QDockWidget::setVisible);
+            zv_dockWidgetMenu->addAction(viewAction);
         }
 
         return;
@@ -259,7 +270,10 @@ void ZBaseMainWindow::zh_fillLanguageMenu()
     foreach (QString languageName, availableLanguageNameList)
     {
         QAction* action = zv_languageMenu->addAction(languageName);
-        connect(action, &QAction::triggered, this, &ZBaseMainWindow::zh_appLanguageControl);
+        connect(action,
+                &QAction::triggered,
+                this,
+                &ZBaseMainWindow::zh_appLanguageControl);
     }
 }
 //======================================================
@@ -292,11 +306,14 @@ void ZBaseMainWindow::zh_appLanguageControl()
     if (ok)
     {
         msg = tr("The language of application has been changed.\n"
-                 "In order for the changes to take effect, please restart the application.");
-    } else
+                 "In order for the changes to take effect, please restart the "
+                 "application.");
+    }
+    else
     {
-        msg = translatorManager.zp_lastError().isEmpty() ? tr("Unknown language settings error.")
-                                                         : translatorManager.zp_lastError();
+        msg = translatorManager.zp_lastError().isEmpty()
+                  ? tr("Unknown language settings error.")
+                  : translatorManager.zp_lastError();
     }
 
     QString title = tr("Language settings");
