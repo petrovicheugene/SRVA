@@ -4,9 +4,10 @@
 //==============================================
 #include "ZBaseMainWindow/ZBaseMainWindow.h"
 //==============================================
-
-//==============================================
-class MainWindow : public ZBaseMainWindow
+class ZMeasurementDataWidget;
+class
+    //==============================================
+    class MainWindow : public ZBaseMainWindow
 {
     Q_OBJECT
 
@@ -16,6 +17,7 @@ public:
 
 private:
     // VARS
+    ZMeasurementDataWidget* zv_measurementDataWidget;
 
     // FUNCS
 

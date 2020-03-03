@@ -1,5 +1,7 @@
 //==============================================
 #include "MainWindow.h"
+#include "ZMeasurementDataWidget.h"
+#include "ZSpectrumWindowWidget.h"
 
 #include <QDockWidget>
 #include <QMenu>
@@ -64,7 +66,16 @@ void MainWindow::zh_createMenu()
     zh_appendActionsToMenu(menu, MI_HELP);
 }
 //==============================================
-void MainWindow::zh_createComponents() {}
+void MainWindow::zh_createComponents()
+{
+    // Measurement data
+    zv_measurementDataWidget = new ZMeasurementDataWidget;
+    QDockWidget* dock = new QDockWidget;
+    dock->setWidget(zv_measurementDataWidget);
+    addDockWidget(Qt::TopDockWidgetArea, dock);
+
+    // Spectrum window and parameter widgets
+}
 //==============================================
 void MainWindow::zh_createConnections() {}
 //==============================================

@@ -42,6 +42,16 @@ SOURCES += \
     ../common/ZBaseMainWindow/ZBaseMainWindow.cpp \
     ../common/ZBaseMainWindow/ZHelpBrowser.cpp \
     ../common/ZBaseMainWindow/ZTranslatorManager.cpp \
+    ZAbstractSpectrum.cpp \
+    ZAbstractSpectrumAuxData.cpp \
+    ZAnalyticalParameterExtractor.cpp \
+    ZAnalyticalParameterWidget.cpp \
+    ZCommonAnalyticalSettingsWidget.cpp \
+    ZMeasurementDataModel.cpp \
+    ZMeasurementDataWidget.cpp \
+    ZSpeAuxData.cpp \
+    ZSpeSpectrum.cpp \
+    ZSpectrumWindowWidget.cpp \
     main.cpp \
     MainWindow.cpp
 
@@ -49,7 +59,17 @@ HEADERS += \
     ../common/ZBaseMainWindow/ZBaseMainWindow.h \
     ../common/ZBaseMainWindow/ZHelpBrowser.h \
     ../common/ZBaseMainWindow/ZTranslatorManager.h \
-    MainWindow.h
+    MainWindow.h \
+    ZAbstractSpectrum.h \
+    ZAbstractSpectrumAuxData.h \
+    ZAnalyticalParameterExtractor.h \
+    ZAnalyticalParameterWidget.h \
+    ZCommonAnalyticalSettingsWidget.h \
+    ZMeasurementDataModel.h \
+    ZMeasurementDataWidget.h \
+    ZSpeAuxData.h \
+    ZSpeSpectrum.h \
+    ZSpectrumWindowWidget.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
