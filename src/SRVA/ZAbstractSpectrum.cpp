@@ -1,7 +1,7 @@
 //==========================================================
 #include "ZAbstractSpectrum.h"
+#include "ZCalibrationWindow.h"
 #include <QFileInfo>
-//#include "ZCalibrationWindow.h"
 //==========================================================
 qint64 ZAbstractSpectrum::zv_lastSpectrumId = 0;
 //==========================================================
@@ -178,54 +178,59 @@ QString ZAbstractSpectrum::zp_path() const
     return zv_path;
 }
 //==========================================================
-//bool ZAbstractSpectrum::zp_intensityInWindow(int startChannel, int lastChannel, qreal& intensity) const
-//{
-//    if(startChannel < 0)
-//    {
-//        startChannel = 0;
-//    }
-//    else if(startChannel > zv_spectrumData.count())
-//    {
-//        startChannel = zv_spectrumData.count() - 1;
-//    }
+bool ZAbstractSpectrum::zp_intensityInWindow(int startChannel,
+                                             int lastChannel,
+                                             qreal& intensity) const
+{
+    if (startChannel < 0)
+    {
+        startChannel = 0;
+    }
+    else if (startChannel > zv_spectrumData.count())
+    {
+        startChannel = zv_spectrumData.count() - 1;
+    }
 
-//    if(lastChannel < 0)
-//    {
-//        lastChannel = 0;
-//    }
-//    else if(lastChannel > zv_spectrumData.count())
-//    {
-//        lastChannel = zv_spectrumData.count() - 1;
-//    }
+    if (lastChannel < 0)
+    {
+        lastChannel = 0;
+    }
+    else if (lastChannel > zv_spectrumData.count())
+    {
+        lastChannel = zv_spectrumData.count() - 1;
+    }
 
-////    if(startChannel == lastChannel)
-////    {
-////        return false;
-////    }
+    //    if(startChannel == lastChannel)
+    //    {
+    //        return false;
+    //    }
 
-//    if(startChannel > lastChannel)
-//    {
-//        qSwap(startChannel, lastChannel);
-//    }
+    if (startChannel > lastChannel)
+    {
+        qSwap(startChannel, lastChannel);
+    }
 
-//    intensity = 0.0;
-//    for(int c = startChannel; c <= lastChannel; c++)
-//    {
-//        intensity += static_cast<qreal>(zv_spectrumData.value(c));
-//    }
+    intensity = 0.0;
+    for (int c = startChannel; c <= lastChannel; c++)
+    {
+        intensity += static_cast<qreal>(zv_spectrumData.value(c));
+    }
 
-//    return true;
-//}
-////==========================================================
-//bool ZAbstractSpectrum::zp_intensityInWindow(const ZCalibrationWindow* window, qreal &intensity) const
-//{
-//    if(!window)
-//    {
-//        return false;
-//    }
+    return true;
+}
+//==========================================================
+bool ZAbstractSpectrum::zp_intensityInWindow(const ZCalibrationWindow* window,
+                                             qreal& intensity) const
+{
+    if (!window)
+    {
+        return false;
+    }
 
-//    return zp_intensityInWindow(window->zp_firstChannel(), window->zp_lastChannel(),  intensity);
-//}
+    return zp_intensityInWindow(window->zp_firstChannel(),
+                                window->zp_lastChannel(),
+                                intensity);
+}
 //==========================================================
 int ZAbstractSpectrum::zp_channelCount() const
 {

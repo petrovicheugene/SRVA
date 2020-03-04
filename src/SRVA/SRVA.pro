@@ -42,13 +42,33 @@ SOURCES += \
     ../common/ZBaseMainWindow/ZBaseMainWindow.cpp \
     ../common/ZBaseMainWindow/ZHelpBrowser.cpp \
     ../common/ZBaseMainWindow/ZTranslatorManager.cpp \
+    ZAbstractPlotterDataManager.cpp \
     ZAbstractSpectrum.cpp \
     ZAbstractSpectrumAuxData.cpp \
     ZAnalyticalParameterExtractor.cpp \
     ZAnalyticalParameterWidget.cpp \
+    ZCalibrationWindow.cpp \
     ZCommonAnalyticalSettingsWidget.cpp \
+    ZEnergyCalibrationLine.cpp \
+    ZGeneral.cpp \
     ZMeasurementDataModel.cpp \
     ZMeasurementDataWidget.cpp \
+    ZPlotter/ZChartPointGraphicsItem.cpp \
+    ZPlotter/ZChartPointOptions.cpp \
+    ZPlotter/ZDefaultRectGraphicsItem.cpp \
+    ZPlotter/ZEnergyLineGraphicsItem.cpp \
+    ZPlotter/ZHorizontalDashBoard.cpp \
+    ZPlotter/ZPlotGraphicsScene.cpp \
+    ZPlotter/ZPlotGraphicsView.cpp \
+    ZPlotter/ZPlotter.cpp \
+    ZPlotter/ZRulerToolGraphicsItem.cpp \
+    ZPlotter/ZRulerWidget.cpp \
+    ZPlotter/ZRulersAndGridManager.cpp \
+    ZPlotter/ZSpectrumGraphicsItem.cpp \
+    ZPlotter/ZTextGraphicsItem.cpp \
+    ZPlotter/ZVerticalLineGraphicsItem.cpp \
+    ZPlotter/ZVisibilityPointF.cpp \
+    ZPlotter/ZWindowGraphicsItem.cpp \
     ZSpeAuxData.cpp \
     ZSpeSpectrum.cpp \
     ZSpectrumWindowWidget.cpp \
@@ -60,13 +80,35 @@ HEADERS += \
     ../common/ZBaseMainWindow/ZHelpBrowser.h \
     ../common/ZBaseMainWindow/ZTranslatorManager.h \
     MainWindow.h \
+    ZAbstractPlotterDataManager.h \
     ZAbstractSpectrum.h \
     ZAbstractSpectrumAuxData.h \
     ZAnalyticalParameterExtractor.h \
     ZAnalyticalParameterWidget.h \
+    ZCalibrationWindow.h \
     ZCommonAnalyticalSettingsWidget.h \
+    ZEnergyCalibrationLine.h \
+    ZGeneral.h \
     ZMeasurementDataModel.h \
     ZMeasurementDataWidget.h \
+    ZPlotter/ZChartPointGraphicsItem.h \
+    ZPlotter/ZChartPointOptions.h \
+    ZPlotter/ZDefaultRectGraphicsItem.h \
+    ZPlotter/ZEnergyLineGraphicsItem.h \
+    ZPlotter/ZGraphicsItemUserTypes.h \
+    ZPlotter/ZHorizontalDashBoard.h \
+    ZPlotter/ZPlotGraphicsScene.h \
+    ZPlotter/ZPlotGraphicsView.h \
+    ZPlotter/ZPlotter.h \
+    ZPlotter/ZPlotterDefaulVariables.h \
+    ZPlotter/ZRulerToolGraphicsItem.h \
+    ZPlotter/ZRulerWidget.h \
+    ZPlotter/ZRulersAndGridManager.h \
+    ZPlotter/ZSpectrumGraphicsItem.h \
+    ZPlotter/ZTextGraphicsItem.h \
+    ZPlotter/ZVerticalLineGraphicsItem.h \
+    ZPlotter/ZVisibilityPointF.h \
+    ZPlotter/ZWindowGraphicsItem.h \
     ZSpeAuxData.h \
     ZSpeSpectrum.h \
     ZSpectrumWindowWidget.h

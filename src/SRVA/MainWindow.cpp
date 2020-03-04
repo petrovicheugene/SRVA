@@ -2,7 +2,7 @@
 #include "MainWindow.h"
 #include "ZCommonAnalyticalSettingsWidget.h"
 #include "ZMeasurementDataWidget.h"
-
+#include "ZPlotter/ZPlotter.h"
 #include <QApplication>
 #include <QDebug>
 #include <QDockWidget>
@@ -71,6 +71,12 @@ void MainWindow::zh_createComponents()
     dock = new QDockWidget;
     dock->setWidget(zv_commonAnalyticalSettingsWidget);
     dock->setObjectName("CommonAnalyticalSettingsWidget");
+    addDockWidget(Qt::TopDockWidgetArea, dock);
+
+    zv_plotter = new ZPlotter;
+    dock = new QDockWidget;
+    dock->setWidget(zv_plotter);
+    dock->setObjectName("MainPlotter");
     addDockWidget(Qt::TopDockWidgetArea, dock);
 }
 //==============================================

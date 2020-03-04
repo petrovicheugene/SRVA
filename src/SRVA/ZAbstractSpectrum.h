@@ -54,8 +54,10 @@ public:
     void zp_setSpectrumData(QList<quint32> data);
 
     virtual const ZAbstractSpectrumAuxData* zp_auxData() const = 0;
-    //    bool zp_intensityInWindow(int startChannel, int lastChannel, qreal& intensity) const;
-    //    bool zp_intensityInWindow(const ZCalibrationWindow*, qreal& intensity) const;
+    bool zp_intensityInWindow(int startChannel,
+                              int lastChannel,
+                              qreal& intensity) const;
+    bool zp_intensityInWindow(const ZCalibrationWindow*, qreal& intensity) const;
 
     int zp_channelCount() const;
     int zp_maxIntensity() const;

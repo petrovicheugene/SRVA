@@ -4,8 +4,9 @@
 //==============================================
 #include "ZBaseMainWindow/ZBaseMainWindow.h"
 //==============================================
-class ZMeasurementDataWidget;
 class ZCommonAnalyticalSettingsWidget;
+class ZMeasurementDataWidget;
+class ZPlotter;
 //==============================================
 class MainWindow : public ZBaseMainWindow
 {
@@ -19,6 +20,7 @@ private:
     // VARS
     ZMeasurementDataWidget* zv_measurementDataWidget;
     ZCommonAnalyticalSettingsWidget* zv_commonAnalyticalSettingsWidget;
+    ZPlotter* zv_plotter;
     // FUNCS
     void closeEvent(QCloseEvent* e) override;
 
