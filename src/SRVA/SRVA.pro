@@ -92,4 +92,5 @@ DISTFILES += \
     ../common/ZBaseMainWindow/green_left.ico \
     ../common/ZBaseMainWindow/green_left.png \
     ../common/ZBaseMainWindow/green_right.ico \
-    ../common/ZBaseMainWindow/green_right.png
+    ../common/ZBaseMainWindow/green_right.png \
+    model-classes.qmodel

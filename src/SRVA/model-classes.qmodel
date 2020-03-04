@@ -12,7 +12,7 @@
          <uid>{90d8f5c2-6d1b-4cae-93fd-f0c4fdb6600f}</uid>
         </MElement>
        </base-MElement>
-       <name>Scratch</name>
+       <name>SRVA model</name>
        <children>
         <handles>
          <handles>
@@ -49,7 +49,7 @@
                          </base-DElement>
                          <object>{537d076d-6bfb-40e5-b294-d42b6e57c0ab}</object>
                          <name>ZMeasurementDataWidget</name>
-                         <pos>x:105;y:365</pos>
+                         <pos>x:150;y:315</pos>
                          <rect>x:-75;y:-30;w:150;h:60</rect>
                          <visual-role>0</visual-role>
                         </DObject>
@@ -227,7 +227,7 @@ and ZAnalyticalParameterWidget</text>
                          </base-DElement>
                          <object>{161ee9dd-7e7e-4858-b935-7390327681da}</object>
                          <name>ZMeasurementDataModel</name>
-                         <pos>x:105;y:470</pos>
+                         <pos>x:150;y:420</pos>
                          <rect>x:-70;y:-30;w:140;h:60</rect>
                          <auto-sized>false</auto-sized>
                          <visual-role>0</visual-role>
@@ -328,9 +328,9 @@ and ZAnalyticalParameterWidget</text>
                          <uid>{8e911481-2c1f-42eb-915d-7c17a0f8e175}</uid>
                         </DElement>
                        </base-DElement>
-                       <text>Holds spectra, the addition values, and the calculated concentrations</text>
-                       <pos>x:185;y:440</pos>
-                       <rect>x:0;y:0;w:129;h:68</rect>
+                       <text>Holds spectra, the additive values, and the calculated concentrations</text>
+                       <pos>x:-35;y:390</pos>
+                       <rect>x:0;y:0;w:116;h:68</rect>
                        <auto-sized>false</auto-sized>
                       </DAnnotation>
                      </instance>
@@ -397,7 +397,7 @@ and ZAnalyticalParameterWidget</text>
                          </base-DElement>
                          <object>{79661f2a-d8c9-48b4-bc32-e0547e374925}</object>
                          <name>ZPlotter</name>
-                         <pos>x:105;y:750</pos>
+                         <pos>x:95;y:710</pos>
                          <rect>x:-40;y:-30;w:80;h:60</rect>
                          <visual-role>0</visual-role>
                         </DObject>
@@ -442,7 +442,7 @@ and ZAnalyticalParameterWidget</text>
                          </base-DElement>
                          <object>{757bfb27-13f2-4aa3-8f5a-8d75c17f9295}</object>
                          <name>ZPlotterDataManager</name>
-                         <pos>x:320;y:750</pos>
+                         <pos>x:310;y:710</pos>
                          <rect>x:-60;y:-30;w:120;h:60</rect>
                          <visual-role>0</visual-role>
                         </DObject>
@@ -475,7 +475,7 @@ and ZAnalyticalParameterWidget</text>
                     </item>
                    </qlist>
                   </elements>
-                  <last-modified>1583244009795</last-modified>
+                  <last-modified>1583299457919</last-modified>
                   <toolbarid>Classes</toolbarid>
                  </MDiagram>
                 </base-MDiagram>
@@ -823,31 +823,6 @@ and ZAnalyticalParameterWidget</text>
                  </qlist>
                 </members>
                </MClass>
-              </instance>
-             </target>
-            </handle>
-           </item>
-           <item>
-            <handle>
-             <uid>{0cef89d3-293c-4dc0-80ee-062697343353}</uid>
-             <target>
-              <instance type="MCanvasDiagram">
-               <MCanvasDiagram>
-                <base-MDiagram>
-                 <MDiagram>
-                  <base-MObject>
-                   <MObject>
-                    <base-MElement>
-                     <MElement>
-                      <uid>{0cef89d3-293c-4dc0-80ee-062697343353}</uid>
-                     </MElement>
-                    </base-MElement>
-                    <name>New Diagram</name>
-                   </MObject>
-                  </base-MObject>
-                 </MDiagram>
-                </base-MDiagram>
-               </MCanvasDiagram>
               </instance>
              </target>
             </handle>
