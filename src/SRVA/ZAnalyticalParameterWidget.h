@@ -14,6 +14,9 @@ public:
 
 signals:
 
+private:
+    //VARS
+    QString zv_captionTemplate;
 };
 //==============================================
 #endif // ZANALYTICALPARAMETERWIDGET_H

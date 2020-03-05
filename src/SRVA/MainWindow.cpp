@@ -2,7 +2,9 @@
 #include "MainWindow.h"
 #include "ZCommonAnalyticalSettingsWidget.h"
 #include "ZMeasurementDataWidget.h"
+#include "ZMessageWidget.h"
 #include "ZPlotter/ZPlotter.h"
+
 #include <QApplication>
 #include <QDebug>
 #include <QDockWidget>
@@ -61,14 +63,15 @@ void MainWindow::zh_createComponents()
 {
     // Measurement data
     zv_measurementDataWidget = new ZMeasurementDataWidget;
-    QDockWidget* dock = new QDockWidget;
-    dock->setWidget(zv_measurementDataWidget);
-    dock->setObjectName("MeasurementDataWidget");
-    addDockWidget(Qt::TopDockWidgetArea, dock);
+    setCentralWidget(zv_measurementDataWidget);
+    //    QDockWidget* dock = new QDockWidget;
+    //    dock->setWidget(zv_measurementDataWidget);
+    //    dock->setObjectName("MeasurementDataWidget");
+    //    addDockWidget(Qt::TopDockWidgetArea, dock);
 
     // Spectrum window and parameter widgets
     zv_commonAnalyticalSettingsWidget = new ZCommonAnalyticalSettingsWidget;
-    dock = new QDockWidget;
+    QDockWidget* dock = new QDockWidget;
     dock->setWidget(zv_commonAnalyticalSettingsWidget);
     dock->setObjectName("CommonAnalyticalSettingsWidget");
     addDockWidget(Qt::TopDockWidgetArea, dock);
@@ -77,6 +80,12 @@ void MainWindow::zh_createComponents()
     dock = new QDockWidget;
     dock->setWidget(zv_plotter);
     dock->setObjectName("MainPlotter");
+    addDockWidget(Qt::TopDockWidgetArea, dock);
+
+    zv_messageWidget = new ZMessageWidget;
+    dock = new QDockWidget;
+    dock->setWidget(zv_messageWidget);
+    dock->setObjectName("MessageWidget");
     addDockWidget(Qt::TopDockWidgetArea, dock);
 }
 //==============================================

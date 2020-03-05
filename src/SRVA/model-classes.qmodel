@@ -89,7 +89,7 @@
                          </base-DElement>
                          <object>{dca3dc4f-b2ee-458a-8908-1bb9ab85706a}</object>
                          <name>ZAnalyticalParameterWidget</name>
-                         <pos>x:705;y:480</pos>
+                         <pos>x:745;y:515</pos>
                          <rect>x:-80;y:-30;w:160;h:60</rect>
                          <visual-role>0</visual-role>
                         </DObject>
@@ -109,7 +109,7 @@
                          </base-DElement>
                          <object>{8c42113e-c35a-487f-974d-ada75c0b1bd9}</object>
                          <name>ZSpectrumWindowWidget</name>
-                         <pos>x:385;y:480</pos>
+                         <pos>x:420;y:515</pos>
                          <rect>x:-70;y:-35;w:140;h:70</rect>
                          <auto-sized>false</auto-sized>
                          <visual-role>0</visual-role>
@@ -193,7 +193,7 @@ and ZAnalyticalParameterWidget</text>
                         </DElement>
                        </base-DElement>
                        <text>The class represents the spectrum windows and the controls for adding, deleting, and editing them</text>
-                       <pos>x:460;y:445</pos>
+                       <pos>x:500;y:480</pos>
                        <rect>x:0;y:0;w:160;h:68</rect>
                        <auto-sized>false</auto-sized>
                       </DAnnotation>
@@ -209,7 +209,7 @@ and ZAnalyticalParameterWidget</text>
                        </base-DElement>
                        <text>The class represents the equation string and controls for editing it 
 </text>
-                       <pos>x:795;y:445</pos>
+                       <pos>x:835;y:480</pos>
                        <rect>x:0;y:0;w:147;h:68</rect>
                        <auto-sized>false</auto-sized>
                       </DAnnotation>
@@ -473,9 +473,54 @@ and ZAnalyticalParameterWidget</text>
                       </DAssociation>
                      </instance>
                     </item>
+                    <item>
+                     <instance type="DClass">
+                      <DClass>
+                       <base-DObject>
+                        <DObject>
+                         <base-DElement>
+                          <DElement>
+                           <uid>{1648beba-457a-414c-bddc-f86eae652dc5}</uid>
+                          </DElement>
+                         </base-DElement>
+                         <object>{2d0d21b0-c80a-43f5-a0df-43268c059a81}</object>
+                         <name>MessageWidget</name>
+                         <pos>x:755;y:170</pos>
+                         <rect>x:-50;y:-30;w:100;h:60</rect>
+                         <visual-role>0</visual-role>
+                        </DObject>
+                       </base-DObject>
+                      </DClass>
+                     </instance>
+                    </item>
+                    <item>
+                     <instance type="DAssociation">
+                      <DAssociation>
+                       <base-DRelation>
+                        <DRelation>
+                         <base-DElement>
+                          <DElement>
+                           <uid>{3760b91b-3627-452b-981a-c44041de8f44}</uid>
+                          </DElement>
+                         </base-DElement>
+                         <object>{b46f5fcd-d5bb-43cd-99d3-8e27286f32e5}</object>
+                         <a>{1648beba-457a-414c-bddc-f86eae652dc5}</a>
+                         <b>{eedd12ec-3382-42db-9c16-20286c9d11d7}</b>
+                        </DRelation>
+                       </base-DRelation>
+                       <a>
+                        <DAssociationEnd>
+                         <cradinality>1</cradinality>
+                         <navigable>true</navigable>
+                         <kind>2</kind>
+                        </DAssociationEnd>
+                       </a>
+                      </DAssociation>
+                     </instance>
+                    </item>
                    </qlist>
                   </elements>
-                  <last-modified>1583334448128</last-modified>
+                  <last-modified>1583383580881</last-modified>
                   <toolbarid>Classes</toolbarid>
                  </MDiagram>
                 </base-MDiagram>
@@ -815,7 +860,7 @@ and ZAnalyticalParameterWidget</text>
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{3f77f110-556a-4b0b-a0d9-6c7a16ed32ce}</uid>
+                    <uid>{2c3fe2ef-d819-4d64-b444-a9700940fbf9}</uid>
                     <type>1</type>
                     <declaration>QTableView zv_table</declaration>
                    </MClassMember>
@@ -1114,6 +1159,64 @@ and ZAnalyticalParameterWidget</text>
                    </MElement>
                   </base-MElement>
                   <name>ZPlotterDataManager</name>
+                 </MObject>
+                </base-MObject>
+               </MClass>
+              </instance>
+             </target>
+            </handle>
+           </item>
+           <item>
+            <handle>
+             <uid>{2d0d21b0-c80a-43f5-a0df-43268c059a81}</uid>
+             <target>
+              <instance type="MClass">
+               <MClass>
+                <base-MObject>
+                 <MObject>
+                  <base-MElement>
+                   <MElement>
+                    <uid>{2d0d21b0-c80a-43f5-a0df-43268c059a81}</uid>
+                   </MElement>
+                  </base-MElement>
+                  <name>MessageWidget</name>
+                  <relations>
+                   <handles>
+                    <handles>
+                     <qlist>
+                      <item>
+                       <handle>
+                        <uid>{b46f5fcd-d5bb-43cd-99d3-8e27286f32e5}</uid>
+                        <target>
+                         <instance type="MAssociation">
+                          <MAssociation>
+                           <base-MRelation>
+                            <MRelation>
+                             <base-MElement>
+                              <MElement>
+                               <uid>{b46f5fcd-d5bb-43cd-99d3-8e27286f32e5}</uid>
+                              </MElement>
+                             </base-MElement>
+                             <a>{2d0d21b0-c80a-43f5-a0df-43268c059a81}</a>
+                             <b>{a30b6c1c-68aa-4561-af95-03f03f06f149}</b>
+                            </MRelation>
+                           </base-MRelation>
+                           <a>
+                            <MAssociationEnd>
+                             <cardinality>1</cardinality>
+                             <navigable>true</navigable>
+                             <kind>2</kind>
+                            </MAssociationEnd>
+                           </a>
+                          </MAssociation>
+                         </instance>
+                        </target>
+                       </handle>
+                      </item>
+                     </qlist>
+                    </handles>
+                   </handles>
+                  </relations>
                  </MObject>
                 </base-MObject>
                </MClass>

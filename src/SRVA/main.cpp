@@ -171,6 +171,11 @@ int main(int argc, char *argv[])
 #ifdef APP_DESCRIPTION
     qApp->setProperty("appDescription", QString(APP_DESCRIPTION));
 #endif
+
+    // set caption template to qApp
+    qApp->setProperty("CaptionTemplate",
+                      QString("<b><font color=red>%1</font></b>"));
+
     //    ZTranslatorManager languageManager;
     //    languageManager.zp_installTranslatorsToApplication();
 

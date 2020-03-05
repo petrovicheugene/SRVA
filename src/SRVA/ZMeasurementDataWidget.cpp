@@ -1,16 +1,15 @@
 //==============================================
 #include "ZMeasurementDataWidget.h"
 
+#include <QApplication>
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QTableView>
 #include <QVBoxLayout>
 //==============================================
-ZMeasurementDataWidget::ZMeasurementDataWidget(QString captionTemplate,
-                                               QWidget* parent)
+ZMeasurementDataWidget::ZMeasurementDataWidget(QWidget* parent)
     : QWidget(parent)
 {
-    zv_captionTemplate = captionTemplate;
     zh_createComponents();
     zh_createConnections();
 }
@@ -32,11 +31,12 @@ void ZMeasurementDataWidget::zh_createConnections() {}
 //==============================================
 QString ZMeasurementDataWidget::zh_formatCaption(const QString& caption)
 {
-    if (zv_captionTemplate.isEmpty())
+    QString captionTemplate = qApp->property("CaptionTemplate").toString();
+    if (captionTemplate.isEmpty())
     {
         return caption;
     }
 
-    return QString(zv_captionTemplate).arg(caption);
+    return QString(captionTemplate).arg(caption);
 }
 //==============================================
