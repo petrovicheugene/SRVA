@@ -63,14 +63,15 @@ void MainWindow::zh_createComponents()
 {
     // Measurement data
     zv_measurementDataWidget = new ZMeasurementDataWidget;
-    QDockWidget* dock = new QDockWidget;
-    dock->setWidget(zv_measurementDataWidget);
-    dock->setObjectName("MeasurementDataWidget");
-    addDockWidget(Qt::TopDockWidgetArea, dock);
+    setCentralWidget(zv_measurementDataWidget);
+    //    QDockWidget* dock = new QDockWidget;
+    //    dock->setWidget(zv_measurementDataWidget);
+    //    dock->setObjectName("MeasurementDataWidget");
+    //    addDockWidget(Qt::TopDockWidgetArea, dock);
 
     // Spectrum window and parameter widgets
     zv_commonAnalyticalSettingsWidget = new ZCommonAnalyticalSettingsWidget;
-    dock = new QDockWidget;
+    QDockWidget* dock = new QDockWidget;
     dock->setWidget(zv_commonAnalyticalSettingsWidget);
     dock->setObjectName("CommonAnalyticalSettingsWidget");
     addDockWidget(Qt::TopDockWidgetArea, dock);
