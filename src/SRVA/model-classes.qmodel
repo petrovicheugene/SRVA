@@ -69,7 +69,7 @@
                          </base-DElement>
                          <object>{1ecd0523-efd4-4d8e-bb52-c677b9abb5fa}</object>
                          <name>ZCommonAnalyticalSettingsWidget</name>
-                         <pos>x:535;y:405</pos>
+                         <pos>x:645;y:315</pos>
                          <rect>x:-95;y:-30;w:190;h:60</rect>
                          <visual-role>0</visual-role>
                         </DObject>
@@ -89,7 +89,7 @@
                          </base-DElement>
                          <object>{dca3dc4f-b2ee-458a-8908-1bb9ab85706a}</object>
                          <name>ZAnalyticalParameterWidget</name>
-                         <pos>x:700;y:595</pos>
+                         <pos>x:705;y:480</pos>
                          <rect>x:-80;y:-30;w:160;h:60</rect>
                          <visual-role>0</visual-role>
                         </DObject>
@@ -109,7 +109,7 @@
                          </base-DElement>
                          <object>{8c42113e-c35a-487f-974d-ada75c0b1bd9}</object>
                          <name>ZSpectrumWindowWidget</name>
-                         <pos>x:375;y:595</pos>
+                         <pos>x:385;y:480</pos>
                          <rect>x:-70;y:-35;w:140;h:70</rect>
                          <auto-sized>false</auto-sized>
                          <visual-role>0</visual-role>
@@ -178,7 +178,7 @@
                        </base-DElement>
                        <text>Only holds together ZSpectrumWindowWidget
 and ZAnalyticalParameterWidget</text>
-                       <pos>x:640;y:375</pos>
+                       <pos>x:750;y:285</pos>
                        <rect>x:0;y:0;w:184;h:55</rect>
                        <auto-sized>false</auto-sized>
                       </DAnnotation>
@@ -193,7 +193,7 @@ and ZAnalyticalParameterWidget</text>
                         </DElement>
                        </base-DElement>
                        <text>The class represents the spectrum windows and the controls for adding, deleting, and editing them</text>
-                       <pos>x:455;y:560</pos>
+                       <pos>x:460;y:445</pos>
                        <rect>x:0;y:0;w:160;h:68</rect>
                        <auto-sized>false</auto-sized>
                       </DAnnotation>
@@ -209,7 +209,7 @@ and ZAnalyticalParameterWidget</text>
                        </base-DElement>
                        <text>The class represents the equation string and controls for editing it 
 </text>
-                       <pos>x:790;y:560</pos>
+                       <pos>x:795;y:445</pos>
                        <rect>x:0;y:0;w:147;h:68</rect>
                        <auto-sized>false</auto-sized>
                       </DAnnotation>
@@ -475,7 +475,7 @@ and ZAnalyticalParameterWidget</text>
                     </item>
                    </qlist>
                   </elements>
-                  <last-modified>1583299457919</last-modified>
+                  <last-modified>1583334448128</last-modified>
                   <toolbarid>Classes</toolbarid>
                  </MDiagram>
                 </base-MDiagram>
@@ -815,7 +815,7 @@ and ZAnalyticalParameterWidget</text>
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{66605412-d7d3-4c53-b4f3-9b20d00386f2}</uid>
+                    <uid>{3f77f110-556a-4b0b-a0d9-6c7a16ed32ce}</uid>
                     <type>1</type>
                     <declaration>QTableView zv_table</declaration>
                    </MClassMember>
