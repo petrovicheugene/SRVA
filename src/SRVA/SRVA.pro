@@ -38,10 +38,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
+INCLUDEPATH += ../common/ZBaseComponents/ \
+    ZPlotter/
+
 SOURCES += \
-    ../common/ZBaseMainWindow/ZBaseMainWindow.cpp \
-    ../common/ZBaseMainWindow/ZHelpBrowser.cpp \
-    ../common/ZBaseMainWindow/ZTranslatorManager.cpp \
+    ../common/ZBaseComponents/ZBaseMainWindow.cpp \
+    ../common/ZBaseComponents/ZHelpBrowser.cpp \
+    ../common/ZBaseComponents/ZTranslatorManager.cpp \
     ZAbstractPlotterDataManager.cpp \
     ZAbstractSpectrum.cpp \
     ZAbstractSpectrumAuxData.cpp \
@@ -53,6 +56,7 @@ SOURCES += \
     ZGeneral.cpp \
     ZMeasurementDataModel.cpp \
     ZMeasurementDataWidget.cpp \
+    ZMessageWidget.cpp \
     ZPlotter/ZChartPointGraphicsItem.cpp \
     ZPlotter/ZChartPointOptions.cpp \
     ZPlotter/ZDefaultRectGraphicsItem.cpp \
@@ -76,9 +80,9 @@ SOURCES += \
     MainWindow.cpp
 
 HEADERS += \
-    ../common/ZBaseMainWindow/ZBaseMainWindow.h \
-    ../common/ZBaseMainWindow/ZHelpBrowser.h \
-    ../common/ZBaseMainWindow/ZTranslatorManager.h \
+    ../common/ZBaseComponents/ZBaseMainWindow.h \
+    ../common/ZBaseComponents/ZHelpBrowser.h \
+    ../common/ZBaseComponents/ZTranslatorManager.h \
     MainWindow.h \
     ZAbstractPlotterDataManager.h \
     ZAbstractSpectrum.h \
@@ -91,6 +95,7 @@ HEADERS += \
     ZGeneral.h \
     ZMeasurementDataModel.h \
     ZMeasurementDataWidget.h \
+    ZMessageWidget.h \
     ZPlotter/ZChartPointGraphicsItem.h \
     ZPlotter/ZChartPointOptions.h \
     ZPlotter/ZDefaultRectGraphicsItem.h \
@@ -119,20 +124,20 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
-    ../common/ZBaseMainWindow/HelpBrowserResources.qrc
+    ../common/ZBaseComponents/HelpBrowserResources.qrc
 
 DISTFILES += \
-    ../common/ZBaseMainWindow/blue_home.ico \
-    ../common/ZBaseMainWindow/blue_home.png \
-    ../common/ZBaseMainWindow/blue_left.ico \
-    ../common/ZBaseMainWindow/blue_left.png \
-    ../common/ZBaseMainWindow/blue_right.ico \
-    ../common/ZBaseMainWindow/blue_right.png \
-    ../common/ZBaseMainWindow/editclear.png \
-    ../common/ZBaseMainWindow/green_home.ico \
-    ../common/ZBaseMainWindow/green_home.png \
-    ../common/ZBaseMainWindow/green_left.ico \
-    ../common/ZBaseMainWindow/green_left.png \
-    ../common/ZBaseMainWindow/green_right.ico \
-    ../common/ZBaseMainWindow/green_right.png \
+    ../common/ZBaseComponents/blue_home.ico \
+    ../common/ZBaseComponents/blue_home.png \
+    ../common/ZBaseComponents/blue_left.ico \
+    ../common/ZBaseComponents/blue_left.png \
+    ../common/ZBaseComponents/blue_right.ico \
+    ../common/ZBaseComponents/blue_right.png \
+    ../common/ZBaseComponents/editclear.png \
+    ../common/ZBaseComponents/green_home.ico \
+    ../common/ZBaseComponents/green_home.png \
+    ../common/ZBaseComponents/green_left.ico \
+    ../common/ZBaseComponents/green_left.png \
+    ../common/ZBaseComponents/green_right.ico \
+    ../common/ZBaseComponents/green_right.png \
     model-classes.qmodel

@@ -2,10 +2,11 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 //==============================================
-#include "ZBaseMainWindow/ZBaseMainWindow.h"
+#include "ZBaseMainWindow.h"
 //==============================================
 class ZCommonAnalyticalSettingsWidget;
 class ZMeasurementDataWidget;
+class ZMessageWidget;
 class ZPlotter;
 //==============================================
 class MainWindow : public ZBaseMainWindow
@@ -21,6 +22,8 @@ private:
     ZMeasurementDataWidget* zv_measurementDataWidget;
     ZCommonAnalyticalSettingsWidget* zv_commonAnalyticalSettingsWidget;
     ZPlotter* zv_plotter;
+    ZMessageWidget* zv_messageWidget;
+
     // FUNCS
     void closeEvent(QCloseEvent* e) override;
 

@@ -19,6 +19,10 @@ public:
 
 signals:
 
+private:
+    // VARS
+
+    // FUNCS
 };
 //==============================================
 #endif // ZANALYTICALSETTINGS_H

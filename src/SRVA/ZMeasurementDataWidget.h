@@ -10,15 +10,13 @@ class ZMeasurementDataWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ZMeasurementDataWidget(QString captionTemplate = QString(),
-                                    QWidget* parent = nullptr);
+    explicit ZMeasurementDataWidget(QWidget* parent = nullptr);
 
 signals:
 
 private:
     // VARS
     QTableView* zv_tableView;
-    QString zv_captionTemplate;
 
     // FUNCS
     void zh_createComponents();

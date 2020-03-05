@@ -13,15 +13,13 @@ class ZSpectrumWindowWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ZSpectrumWindowWidget(QString captionTemplate = QString(),
-                                   QWidget* parent = nullptr);
+    explicit ZSpectrumWindowWidget(QWidget* parent = nullptr);
 
 signals:
 
 private:
     // VARS
     QTableView* zv_tableView;
-    QString zv_captionTemplate;
 
     // FUNCS
     void zh_createComponents();

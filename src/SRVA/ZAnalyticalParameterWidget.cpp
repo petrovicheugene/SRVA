@@ -1,8 +1,9 @@
 //==============================================
 #include "ZAnalyticalParameterWidget.h"
-//==============================================
-ZAnalyticalParameterWidget::ZAnalyticalParameterWidget(QWidget *parent) : QWidget(parent)
-{
 
-}
+#include <QApplication>
+//==============================================
+ZAnalyticalParameterWidget::ZAnalyticalParameterWidget(QWidget* parent)
+    : QWidget(parent)
+{}
 //==============================================
